@@ -5,7 +5,7 @@ pricipal motivo para faze esse projeto, hobby e estudo
 
 exercios tirados do livro
 
-comandos udados para a compilação e
+comandos usado para a compilação e
 
 ```bash
     cc execicio1.c -o exem.out && ./exem.out 
