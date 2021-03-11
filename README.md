@@ -3,12 +3,18 @@ Projeto de Algoritmos (em C) Paulo Feofiloff
 
 pricipal motivo para faze esse projeto, hobby e estudo
 
-exercios tirados do livro
+exercios tirados do livro:
 
-comandos usado para a compilação e
+https://www.ime.usp.br/~pf/algoritmos/idx.html
+
+comandos usado para a compilação
 
 ```bash
     cc execicio1.c -o exem.out && ./exem.out 
 ```
 
-https://www.ime.usp.br/~pf/algoritmos/idx.html
+usando make, na pasta struct
+
+```bash
+    make exemplo1  
+```
