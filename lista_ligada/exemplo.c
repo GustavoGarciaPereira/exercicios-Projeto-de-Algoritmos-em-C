@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 struct reg{
-    int contudo;
+    int conteudo;
     struct reg *prox;
 };
 typedef struct reg celula;
@@ -29,7 +29,7 @@ typedef struct reg{
 
 int main(){
 
-    celula c;
+    celula c, dois;
     celula *p;
 
     //se c é uma celula então
@@ -40,8 +40,16 @@ int main(){
     
     printf("sizeof (celula) = %ld\n",sizeof(celula));
 
-    c.contudo = 12;
-    printf("print(%d)",c.contudo);
+    c.conteudo = 12;
+
+
+
+    dois.conteudo = 30;
+    c.prox = &dois;
+
+
+    printf("c.conteudo(%d)\n",c.conteudo);
+    printf("c.prox->conteudo(%d)\n",c.prox->conteudo);
     
     return 0;
 }
