@@ -35,31 +35,30 @@ data fimEvento(data inicio, int duracao_dias){
     data fim;
     int dias = 0;
     int mes = 0;
-
-    if(duracao_dias / 365 != 0){
-        inicio.ano += duracao_dias /365;
-        //inicio.dia += 0;
-    }
-    if(duracao_dias / 30 != 0){
-        inicio.mes += duracao_dias / 30;
-        //printf("%d",duracao_dias);
-        if(inicio.mes > 12){
-            inicio.ano += 1;
-            inicio.mes = 1;
-        }
-        duracao_dias -= (duracao_dias / 30)*30;
-        inicio.dia += duracao_dias;
-    }
-
-    if(duracao_dias < 30){
-        inicio.dia += duracao_dias;
-    }
     
-    
-
+    fim.ano = inicio.ano;
     fim.dia = inicio.dia;
     fim.mes = inicio.mes;
-    fim.ano = inicio.ano;
+
+
+    if(duracao_dias / 365 > 0){
+        printf("eii");
+    }
+    if(duracao_dias / 30 > 0){
+        printf("%d",(duracao_dias / 30));
+        fim.mes += (duracao_dias / 30);
+        fim.dia += (duracao_dias-(duracao_dias / 30)*30);
+
+        if(fim.dia >= 30){
+            fim.mes += 1;
+        }
+        if(inicio.mes >= 12){
+            //fim.mes = 0;
+            fim.mes += (duracao_dias / 30);
+            fim.ano += 1;
+        }
+
+    }
 
     return fim;
 }
@@ -74,14 +73,20 @@ int main(int argc, char const *argv[])
 {
 
     data x, data_c;
-    int duracao_dias = 20;
-
-    
-    x.dia = 1;
-    x.mes = 1;
+    int duracao_dias;
+    x.dia = 12;
+    x.mes = 12;
     x.ano = 2020;
-
-
+    duracao_dias = 50;
+    //printf("x.dia:");
+    //scanf("%d",&x.dia);
+    //printf("x.mes:");
+    //scanf("%d",&x.mes);
+    //printf("x.ano:");
+    //scanf("%d",&x.ano);
+    //printf("duracao do evento");
+    //scanf("%d",&duracao_dias);  
+      
     data_c = fimEvento(x, duracao_dias);
     mostrar_data(data_c);
     //mostrar_data(data_c);
