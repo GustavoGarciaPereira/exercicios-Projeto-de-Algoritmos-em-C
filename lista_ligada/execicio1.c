@@ -1,42 +1,83 @@
 //primeiro exemplo
 #include <stdio.h>
 
-struct reg{
-    int conte;
-    int mes;
-    int ano;
-};
-typedef struct dma data;
-
-// emplementacao não tao elegante
 /*
-
-Exercícios 1
-1. Complete o código da função fimEvento acima.
-
-2. Escreva uma função que receba duas structs do tipo dma, cada uma representando 
-uma data válida, e devolva o número de dias que decorreram entre as duas datas.
-
-3. Escreva uma função que receba um número inteiro que representa um intervalo de 
-tempo medido em minutos e devolva o número equivalente de horas e minutos 
-(por exemplo, 131 minutos equivalem a 2 horas e 11 minutos). Use uma struct como 
-a seguinte:
-
-
-struct hm {
-   int horas;
-   int minutos;
-};
-
+    1. Escreva uma função que conte o número de 
+    células de uma lista encadeada. Faça duas 
+    versões: uma iterativa e uma recursiva.
+    
+    2. Altura.  A altura de uma célula c em uma 
+    lista encadeada é a distância entre c e 
+    o fim da lista. Mais precisamente, a 
+    altura de c é o número de passos do 
+    caminho que leva de c até a última 
+    célula da lista.  Escreva uma função 
+    que calcule a altura de uma dada célula.
+    
+    3. Profundidade.  A profundidade de uma 
+    célula c em uma lista encadeada é o número 
+    de passos do único caminho que vai da 
+    primeira célula da lista até c.  
+    Escreva uma função que calcule a 
+    profundidade de uma dada célula. 
 */
 
+typedef struct reg{
+    int conteudo;
+    struct reg *prox;
+
+} celula;
 
 
-///funcao auciliar
+int contando_no_recursivo(celula *le, int soma){
+    if(le == NULL){
+        return 1;
+    }else{
+        printf(" le->%d | soma = %d\n",le->conteudo,soma);
+        return soma + contando_no_recursivo(le->prox,soma++);
+    }
+}
+int contando_no_for(celula *le){
+    int cont = 0;
+    for(celula *p = le; p != NULL;p = p->prox){
+        cont+=1;
+        printf("no(%d)\n",p->conteudo);
+    }
+    return cont;
+        
+}
 
 
 int main(int argc, char const *argv[])
 {
+    //oi                       //
+    celula c, dois, mais_um;  //
+
+    //se c é uma celula então
+    //c.conteudo é o conteúdo da celula e c.prox é p próximo
+
+    //se *p é o endereço de uma celula então
+    //c->conteudo é o conteúdo da celula e c->prox é p próximo
+    
+    printf("sizeof (celula) = %ld\n",sizeof(celula));
+
+    c.conteudo = 12;
+    dois.conteudo = 30;
+    mais_um.conteudo = 3;
+
+    //genial o ultomo aponta para null
+    //vovo programador tem que especificar isso
+    mais_um.prox = NULL;
+    dois.prox = &mais_um;
+
+    c.prox = &dois;
+
+    //printf("c.conteudo(%d)\n",c.conteudo);
+    //printf("c.prox->conteudo(%d)\n",c.prox->conteudo);
+    
+    printf("soma_recursivo = %d\n",contando_no_recursivo(&c,0));
+    //printf("soma_for = %d\n",contando_no_for(&c));
+
 
     return 0;
 }
