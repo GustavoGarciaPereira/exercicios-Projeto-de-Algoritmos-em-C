@@ -26,11 +26,19 @@ typedef struct reg{
 } celula;
 */
 
+int mostrar(celula *le){
+    if(le->prox != NULL){
+        printf("%d\n",le->conteudo);
+        mostrar(le->prox);
+    }
+    return 0;
+}
 
-int main(){
-
-    celula c, dois;
-    celula *p;
+int main(){                      //
+                                //
+    //oi                       //
+    celula c, dois, mais_um;  //
+    celula *p;               //
 
     //se c é uma celula então
     //c.conteudo é o conteúdo da celula e c.prox é p próximo
@@ -45,11 +53,13 @@ int main(){
 
 
     dois.conteudo = 30;
+    
+    mais_um.conteudo = 3;
+    dois.prox = &mais_um;
     c.prox = &dois;
 
-
-    printf("c.conteudo(%d)\n",c.conteudo);
-    printf("c.prox->conteudo(%d)\n",c.prox->conteudo);
-    
+    //printf("c.conteudo(%d)\n",c.conteudo);
+    //printf("c.prox->conteudo(%d)\n",c.prox->conteudo);
+    mostrar(&c);
     return 0;
 }
