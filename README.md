@@ -18,3 +18,11 @@ usando make, na pasta struct
 ```bash
     make exemplo1  
 ```
+
+Ultimamente estou estudando mais arquivos make os "makefiles", estou fazendo além de
+
+rodar os meus códigos em C, fazendo até teste funcional, em alguns programas, muito
+
+legal.
+
+![exemplo código](exemplo.png)
